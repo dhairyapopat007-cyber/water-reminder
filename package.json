@@ -5,6 +5,14 @@
   "version": "0.4.0",
   "publisher": "your-publisher-id",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dhairyapopat007-cyber/water-reminder.git"
+  },
+  "homepage": "https://github.com/dhairyapopat007-cyber/water-reminder#readme",
+  "bugs": {
+    "url": "https://github.com/dhairyapopat007-cyber/water-reminder/issues"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
