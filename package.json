@@ -1,0 +1,250 @@
+{
+  "name": "water-reminder",
+  "displayName": "Water Reminder",
+  "description": "A friendly character pops up and reminds you to drink water.",
+  "version": "0.4.0",
+  "publisher": "your-publisher-id",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "waterReminder.showNow",
+        "title": "Water Reminder: Show Now"
+      },
+      {
+        "command": "waterReminder.resetCount",
+        "title": "Water Reminder: Reset Today's Count"
+      },
+      {
+        "command": "waterReminder.setName",
+        "title": "Water Reminder: Change My Name"
+      },
+      {
+        "command": "waterReminder.openSettings",
+        "title": "Water Reminder: Open Settings Panel"
+      },
+      {
+        "command": "waterReminder.logGlass",
+        "title": "Water Reminder: Log a Glass"
+      },
+      {
+        "command": "waterReminder.chooseGender",
+        "title": "Water Reminder: Choose Male or Female Character"
+      },
+      {
+        "command": "waterReminder.chooseCharacter",
+        "title": "Water Reminder: Choose Character (image or 3D model)"
+      },
+      {
+        "command": "waterReminder.pause",
+        "title": "Water Reminder: Pause Reminders…"
+      },
+      {
+        "command": "waterReminder.resume",
+        "title": "Water Reminder: Resume Reminders"
+      }
+    ],
+    "configuration": {
+      "title": "Water Reminder",
+      "properties": {
+        "waterReminder.userName": {
+          "type": "string",
+          "default": "",
+          "description": "Name shown in the greeting. You are asked for it on first run."
+        },
+        "waterReminder.intervalMinutes": {
+          "type": "number",
+          "default": 15,
+          "minimum": 1,
+          "description": "Minutes between reminders."
+        },
+        "waterReminder.snoozeMinutes": {
+          "type": "number",
+          "default": 10,
+          "minimum": 1,
+          "description": "Minutes to wait after 'Remind me later'."
+        },
+        "waterReminder.noReplySeconds": {
+          "type": "number",
+          "default": 60,
+          "minimum": 0,
+          "description": "If you don't answer within this many seconds, it counts as NO: the reminder leaves and comes back after snoozeMinutes. 0 keeps it up until you answer."
+        },
+        "waterReminder.popupStyle": {
+          "type": "string",
+          "enum": [
+            "overlay",
+            "tab"
+          ],
+          "default": "overlay",
+          "enumDescriptions": [
+            "Floating transparent character on top of your screen (Linux, needs python3-gi + WebKit2GTK).",
+            "Open as an editor tab."
+          ],
+          "description": "How the reminder appears."
+        },
+        "waterReminder.overlayPosition": {
+          "type": "string",
+          "enum": [
+            "bottom-left",
+            "bottom-right",
+            "center"
+          ],
+          "default": "bottom-left",
+          "description": "Where the floating character appears on screen."
+        },
+        "waterReminder.characterStyle": {
+          "type": "string",
+          "enum": [
+            "realistic",
+            "cartoon"
+          ],
+          "enumDescriptions": [
+            "A realistic 3D person with motion-captured animations.",
+            "The hand-made cartoon character."
+          ],
+          "default": "realistic",
+          "description": "How the built-in character looks."
+        },
+        "waterReminder.characterGender": {
+          "type": "string",
+          "enum": [
+            "male",
+            "female"
+          ],
+          "enumDescriptions": [
+            "Aqua Runner: curly hair, sweatband, round glasses, teal hoodie.",
+            "Lily: glam face, red lips, long side-swept waves, black top, white trousers, white handbag."
+          ],
+          "default": "",
+          "description": "Which built-in character reminds you. You are asked on first run; change it with 'Water Reminder: Choose Male or Female Character'."
+        },
+        "waterReminder.character": {
+          "type": "string",
+          "default": "",
+          "description": "Path to your character: an image with a transparent background (.png/.webp/.gif) or a rigged 3D model (.glb/.gltf, whose animations play automatically). Set it with 'Water Reminder: Choose Character'."
+        },
+        "waterReminder.characterModelTurn": {
+          "type": "number",
+          "default": 0,
+          "description": "Degrees to rotate the 3D model if it doesn't face you (e.g. 180)."
+        },
+        "waterReminder.pauseWhenBusy": {
+          "type": "boolean",
+          "default": true,
+          "description": "Don't pop up while you're sharing your screen, using the microphone or camera (a call or meeting), or have Do Not Disturb on (Linux). The reminder waits and shows once you're free."
+        },
+        "waterReminder.pauseWhenAway": {
+          "type": "boolean",
+          "default": true,
+          "description": "Don't pop up while the screen is locked or you've been away (no keyboard or mouse) for awayMinutes (Linux, GNOME). The reminder shows once you're back."
+        },
+        "waterReminder.awayMinutes": {
+          "type": "number",
+          "default": 5,
+          "minimum": 0,
+          "description": "Minutes without keyboard or mouse activity after which you count as away. 0 only checks for a locked screen."
+        },
+        "waterReminder.quietHours": {
+          "type": "boolean",
+          "default": true,
+          "description": "No reminders between quietHoursStart and quietHoursEnd (e.g. at night)."
+        },
+        "waterReminder.quietHoursStart": {
+          "type": "number",
+          "default": 22,
+          "minimum": 0,
+          "maximum": 23,
+          "description": "Hour (0-23) when quiet hours begin."
+        },
+        "waterReminder.quietHoursEnd": {
+          "type": "number",
+          "default": 8,
+          "minimum": 0,
+          "maximum": 23,
+          "description": "Hour (0-23) when quiet hours end and reminders start again. 'Pause until tomorrow morning' also resumes at this hour."
+        },
+        "waterReminder.dailyGoal": {
+          "type": "number",
+          "default": 8,
+          "minimum": 1,
+          "description": "Glasses of water per day."
+        },
+        "waterReminder.glassSizeMl": {
+          "type": "number",
+          "default": 250,
+          "minimum": 50,
+          "description": "Size of one glass in millilitres, used to show how many litres you've drunk."
+        },
+        "waterReminder.theme": {
+          "type": "string",
+          "enum": [
+            "darkOcean",
+            "lightBreeze",
+            "deepOcean",
+            "forestGreen"
+          ],
+          "enumItemLabels": [
+            "Dark Ocean",
+            "Light Breeze",
+            "Deep Ocean",
+            "Forest Green"
+          ],
+          "default": "darkOcean",
+          "description": "Colours of the reminder pop-up and the Water Reminder panel."
+        },
+        "waterReminder.viewMode": {
+          "type": "string",
+          "enum": [
+            "normal",
+            "compact"
+          ],
+          "enumDescriptions": [
+            "Full-size pop-up and panel.",
+            "A smaller pop-up character and a tighter panel."
+          ],
+          "default": "normal",
+          "description": "Size of the reminder pop-up and the Water Reminder panel."
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "waterReminder",
+          "title": "Water Reminder",
+          "icon": "media/drop.svg"
+        }
+      ]
+    },
+    "views": {
+      "waterReminder": [
+        {
+          "type": "webview",
+          "id": "waterReminder.panel",
+          "name": "Hydration"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.4.0"
+  }
+}

@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 432">
+  <defs>
+    <radialGradient id="skin" cx=".42" cy=".38" r=".7">
+      <stop offset="0" stop-color="#f6cba6"/>
+      <stop offset=".7" stop-color="#e7ae84"/>
+      <stop offset="1" stop-color="#cf9064"/>
+    </radialGradient>
+    <linearGradient id="skinDark" x1="0" x2="1">
+      <stop offset="0" stop-color="#d9a074"/>
+      <stop offset="1" stop-color="#c18456"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2=".3" y2="1">
+      <stop offset="0" stop-color="#3b2b22"/>
+      <stop offset="1" stop-color="#140d0a"/>
+    </linearGradient>
+    <linearGradient id="jacket" x1="0" x2="1">
+      <stop offset="0" stop-color="#7aa3db"/>
+      <stop offset=".55" stop-color="#5683c2"/>
+      <stop offset="1" stop-color="#3e66a4"/>
+    </linearGradient>
+    <linearGradient id="sleeve" x1="0" x2="1">
+      <stop offset="0" stop-color="#6b96d2"/>
+      <stop offset="1" stop-color="#3e66a4"/>
+    </linearGradient>
+    <linearGradient id="tee" x1="0" x2="1">
+      <stop offset="0" stop-color="#70757d"/>
+      <stop offset="1" stop-color="#4c5158"/>
+    </linearGradient>
+    <linearGradient id="jeans" x1="0" x2="1">
+      <stop offset="0" stop-color="#525b6d"/>
+      <stop offset=".5" stop-color="#3d4555"/>
+      <stop offset="1" stop-color="#2a303b"/>
+    </linearGradient>
+    <linearGradient id="shoe" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#d8dde3"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" x2="1">
+      <stop offset="0" stop-color="#d8f0ff"/>
+      <stop offset=".5" stop-color="#f2faff"/>
+      <stop offset="1" stop-color="#b3daf5"/>
+    </linearGradient>
+    <clipPath id="bottleClip"><rect x="52" y="108" width="28" height="82" rx="9"/></clipPath>
+  </defs>
+  <style>
+    .raise { transform-origin: 92px 172px; animation: cheers 2.6s ease-in-out infinite; }
+    .eyes  { transform-origin: 130px 95px; animation: blink 4.5s infinite; }
+    .head  { transform-origin: 130px 140px; animation: tilt 5s ease-in-out infinite; }
+    .wave  { animation: wave 1.6s linear infinite; }
+    @keyframes cheers { 50% { transform: rotate(-6deg); } }
+    @keyframes blink  { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(.1); } }
+    @keyframes tilt   { 50% { transform: rotate(3deg); } }
+    @keyframes wave   { to { transform: translateX(20px); } }
+    @media (prefers-reduced-motion: reduce) { .raise, .eyes, .head, .wave { animation: none; } }
+  </style>
+
+  <!-- ground shadow -->
+  <ellipse cx="130" cy="420" rx="66" ry="8" fill="#000" opacity=".28"/>
+
+  <!-- jeans -->
+  <path d="M104 284 L156 284 L156 318 L104 318 Z" fill="url(#jeans)"/>
+  <path d="M104 286 L130 286 L127 400 L107 400 Z" fill="url(#jeans)" stroke="#3d4555" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M130 286 L156 286 L153 400 L133 400 Z" fill="url(#jeans)" stroke="#3d4555" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M130 300 L130 400" stroke="#232831" stroke-width="2"/>
+  <path d="M112 312 L110 396 M150 312 L151 396" stroke="#d9a85a" stroke-width="1" stroke-dasharray="3 3" opacity=".55"/>
+  
+  <!-- sneakers -->
+  <path d="M106 394 L128 394 L130 409 Q130 415 124 415 L92 415 Q86 415 88 408 Q92 399 106 394 Z" fill="url(#shoe)"/>
+  <path d="M132 394 L154 394 Q168 399 172 408 Q174 415 168 415 L136 415 Q130 415 130 409 Z" fill="url(#shoe)"/>
+  <path d="M86 412 L131 412 L131 418 L86 418 Z M129 412 L174 412 L174 418 L129 418 Z" fill="#aeb5be"/>
+  <path d="M104 400 L114 404 M146 404 L156 400" stroke="#c7cdd4" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- hanging arm -->
+  <path d="M168 172 Q187 220 184 264" stroke="url(#sleeve)" stroke-width="24" stroke-linecap="round" fill="none"/>
+  <path d="M176 214 Q182 222 186 220" stroke="#36598f" stroke-width="1.5" fill="none" opacity=".7"/>
+  <path d="M184.5 258 L184 266" stroke="#36598f" stroke-width="23" stroke-linecap="round"/>
+  <ellipse cx="184" cy="280" rx="10" ry="12.5" fill="url(#skin)"/>
+  <path d="M178 286 Q184 290 190 286" stroke="#c18456" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- neck -->
+  <rect x="119" y="124" width="22" height="40" rx="6" fill="url(#skinDark)"/>
+
+  <!-- torso: tee + open denim jacket -->
+  <path d="M90 168 C90 158 104 154 118 154 L142 154 C156 154 170 158 170 168 L176 278 C176 288 170 292 160 292 L100 292 C90 292 84 288 84 278 Z" fill="url(#jacket)"/>
+  <path d="M116 154 L144 154 L142 292 L118 292 Z" fill="url(#tee)"/>
+  <path d="M118 155 Q130 168 142 155" stroke="#3e4248" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- collar -->
+  <path d="M118 154 L100 158 L94 172 L112 186 Z" fill="#6390cf" stroke="#3a5f97" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M142 154 L160 158 L166 172 L148 186 Z" fill="#4a73b1" stroke="#3a5f97" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M112 186 L118 292 M148 186 L142 292" stroke="#2f5288" stroke-width="2.5"/>
+  <!-- chest pockets + stitching -->
+  <path d="M96 198 L114 198 L114 207 L105 210 L96 207 Z" fill="#4a73b1" stroke="#3a5f97" stroke-width="1.2"/>
+  <path d="M146 198 L164 198 L164 207 L155 210 L146 207 Z" fill="#3e66a4" stroke="#33578e" stroke-width="1.2"/>
+  <circle cx="105" cy="206" r="1.6" fill="#d4b06c"/>
+  <circle cx="155" cy="206" r="1.6" fill="#d4b06c"/>
+  <path d="M95 192 L95 270 M165 192 L165 270" stroke="#d9a85a" stroke-width="1" stroke-dasharray="3 3" opacity=".6"/>
+  <path d="M86 274 L116 274 M144 274 L174 274" stroke="#2f5288" stroke-width="2"/>
+  <path d="M86 278 L116 278 M144 278 L174 278" stroke="#d9a85a" stroke-width="1" stroke-dasharray="3 3" opacity=".6"/>
+  <circle cx="147" cy="222" r="2" fill="#d4b06c"/>
+  <circle cx="146" cy="248" r="2" fill="#d4b06c"/>
+
+  <!-- raised arm holding the bottle at chest height -->
+  <g class="raise">
+    <path d="M92 172 Q74 198 70 226 Q66 206 66 188" stroke="url(#sleeve)" stroke-width="23" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M78 196 Q74 204 72 212" stroke="#36598f" stroke-width="1.5" fill="none" opacity=".7"/>
+    <path d="M66 196 L66 188" stroke="#36598f" stroke-width="24"/>
+
+    <!-- bottle -->
+    <path d="M58 110 C58 102 61 100 61 96 L71 96 C71 100 74 102 74 110 Z" fill="#d4ecff" stroke="#7fb8dc" stroke-width="1.5"/>
+    <rect x="59" y="86" width="14" height="11" rx="2.5" fill="#2e9bff"/>
+    <path d="M61 89 L61 95 M64 89 L64 95 M67 89 L67 95 M70 89 L70 95" stroke="#1f7fd6" stroke-width="1"/>
+    <rect x="52" y="108" width="28" height="82" rx="9" fill="url(#glass)"/>
+    <g clip-path="url(#bottleClip)">
+      <path class="wave" d="M0 132 Q5 128 10 132 T20 132 T30 132 T40 132 T50 132 T60 132 T70 132 T80 132 T90 132 T100 132 L100 200 L0 200 Z" fill="#4fb3ff" opacity=".7"/>
+      <circle cx="60" cy="160" r="1.5" fill="#fff" opacity=".8"/>
+      <circle cx="70" cy="146" r="1.2" fill="#fff" opacity=".8"/>
+    </g>
+    <rect x="52" y="138" width="28" height="13" fill="#fff" opacity=".6"/>
+    <path d="M66 140 Q62 145 66 148 Q70 145 66 140 Z" fill="#2e9bff"/>
+    <rect x="55.5" y="114" width="4" height="66" rx="2" fill="#fff" opacity=".65"/>
+    <rect x="52" y="108" width="28" height="82" rx="9" fill="none" stroke="#7fb8dc" stroke-width="2"/>
+
+    <!-- fist wrapped around the bottle -->
+    <rect x="52" y="162" width="29" height="22" rx="10" fill="url(#skin)"/>
+    <path d="M61 168 L79 168 M61 173 L79 173 M61 178 L79 178" stroke="#c18456" stroke-width="1.5" stroke-linecap="round"/>
+    <ellipse cx="55" cy="168" rx="5.5" ry="7" fill="#eab287" stroke="#c18456" stroke-width="1.2"/>
+  </g>
+
+  <g class="head">
+    <!-- chin shadow on neck -->
+    <ellipse cx="130" cy="138" rx="14" ry="5" fill="#a86d45" opacity=".45"/>
+
+    <!-- ears -->
+    <circle cx="94" cy="100" r="8.5" fill="#e0a679"/>
+    <circle cx="166" cy="100" r="8.5" fill="#d4996c"/>
+    <path d="M92 96 Q96 100 93 105 M168 96 Q164 100 167 105" stroke="#b97b50" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+
+    <!-- face -->
+    <ellipse cx="130" cy="94" rx="36" ry="42" fill="url(#skin)"/>
+
+    <!-- hair: short sides, swept-up quiff -->
+    <path d="M94 98 C89 62 106 46 130 46 C154 46 171 62 166 98 C164 84 160 76 152 72 C140 67 120 67 108 72 C100 76 96 84 94 98 Z" fill="url(#hair)"/>
+    <path d="M98 76 C95 54 118 38 146 41 C164 44 170 58 164 76 C156 60 140 58 124 61 C112 63 104 67 98 74 Z" fill="url(#hair)"/>
+    <path d="M110 60 C122 49 142 47 156 54 M116 65 C128 56 146 56 158 63" stroke="#5a4335" stroke-width="2" fill="none" stroke-linecap="round" opacity=".7"/>
+
+    <!-- short trimmed beard + moustache -->
+    <path d="M95 100 C96 126 111 140 130 140 C149 140 164 126 165 100 C162 116 155 124 147 126 C139 121 121 121 113 126 C105 124 98 116 95 100 Z" fill="#24180f" opacity=".92"/>
+    <ellipse cx="130" cy="118" rx="30" ry="18" fill="#24180f" opacity=".12"/>
+    <path d="M114 119 C120 113 127 114 130 117 C133 114 140 113 146 119 C140 118 134 119 130 120 C126 119 120 118 114 119 Z" fill="#1b120c"/>
+
+    <!-- smile -->
+    <path d="M116 122 Q130 136 144 122 Z" fill="#7a2f26"/>
+    <path d="M117.5 122.5 L142.5 122.5 Q141 126.5 130 127 Q119 126.5 117.5 122.5 Z" fill="#fff"/>
+    <ellipse cx="130" cy="131" rx="5" ry="2" fill="#e0675a"/>
+
+    <!-- cheeks, nose, brows -->
+    <circle cx="109" cy="110" r="6" fill="#ff8a80" opacity=".25"/>
+    <circle cx="151" cy="110" r="6" fill="#ff8a80" opacity=".25"/>
+    <path d="M130 97 Q125 108 128 111 Q131 113 135 110" stroke="#bf8158" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <ellipse cx="127" cy="104" rx="2" ry="5" fill="#fff" opacity=".25"/>
+    <path d="M105 82 Q115 76 124 81 M136 81 Q145 76 155 82" stroke="#1b120c" stroke-width="4.2" fill="none" stroke-linecap="round"/>
+
+    <!-- eyes (blink) -->
+    <g class="eyes">
+      <ellipse cx="116" cy="95" rx="7" ry="7.5" fill="#fff"/>
+      <ellipse cx="144" cy="95" rx="7" ry="7.5" fill="#fff"/>
+      <circle cx="117" cy="95.5" r="4.6" fill="#5a3825"/>
+      <circle cx="145" cy="95.5" r="4.6" fill="#5a3825"/>
+      <circle cx="117" cy="95.5" r="2.4" fill="#120b08"/>
+      <circle cx="145" cy="95.5" r="2.4" fill="#120b08"/>
+      <circle cx="118.6" cy="93.6" r="1.5" fill="#fff"/>
+      <circle cx="146.6" cy="93.6" r="1.5" fill="#fff"/>
+      <path d="M109 92 Q116 86 123 92 M137 92 Q144 86 151 92" stroke="#3a261b" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
